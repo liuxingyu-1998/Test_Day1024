@@ -1,14 +1,17 @@
 package com.mobiletrain.service.impl;
 
 import com.mobiletrain.dao.ContactDAO;
-import com.mobiletrain.dao.impl.ContactDAOImpl;
 import com.mobiletrain.domain.Contact;
 import com.mobiletrain.service.ContactService;
-
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import java.util.List;
 
+@Component("contactService")
 public class ContactServiceImpl implements ContactService {
-    private ContactDAO dao = new ContactDAOImpl();
+
+    @Autowired
+    private ContactDAO dao;
 
     @Override
     public List<Contact> queryAll() {

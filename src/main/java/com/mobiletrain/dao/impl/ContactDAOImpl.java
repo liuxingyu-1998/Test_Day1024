@@ -2,14 +2,18 @@ package com.mobiletrain.dao.impl;
 
 import com.mobiletrain.dao.ContactDAO;
 import com.mobiletrain.domain.Contact;
-import com.mobiletrain.utils.DatabaseUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component("contactDAO")
 public class ContactDAOImpl implements ContactDAO {
-    private JdbcTemplate jdbcTemplate = DatabaseUtils.getJdbcTemplate();
+
+    @Autowired
+    private JdbcTemplate jdbcTemplate;
 
     @Override
     public List<Contact> queryAll() {
